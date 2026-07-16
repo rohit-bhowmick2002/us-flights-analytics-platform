@@ -409,10 +409,26 @@ streamlit run app/streamlit_app.py
 
 ---
 
-## 📖 Additional Documentation & Reference Links
-* **Formal Business Definitions & Mathematical Formulas:** See [`dashboards/kpi_documentation.md`](dashboards/kpi_documentation.md).
-* **Python Module API, Graph OR & Airflow/dbt Reference:** See [`docs/api_documentation.md`](docs/api_documentation.md).
-* **Automated PDF Reports:** Check [`reports/executive_summary.pdf`](reports/executive_summary.pdf), [`reports/technical_report.pdf`](reports/technical_report.pdf), and [`reports/model_evaluation.pdf`](reports/model_evaluation.pdf).
+
+## 👤 Author
+
+<div align="center">
+
+### Rohit Bhowmick
+
+Data Scientist | ML Engineer
+
+<p>
+  <a href="mailto:rohitbhowmick817@gmail.com"><img src="https://img.shields.io/badge/Email-rohitbhowmick817%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/rohit-bhowmick"><img src="https://img.shields.io/badge/LinkedIn-Rohit%20Bhowmick-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="https://github.com/rohit-bhowmick2002"><img src="https://img.shields.io/badge/GitHub-rohit--bhowmick2002-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+</p>
+
+</div>
 
 ---
-*Built with ❤️ by the Enterprise Aviation Analytics Team.*
+
+## 📝 License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+
