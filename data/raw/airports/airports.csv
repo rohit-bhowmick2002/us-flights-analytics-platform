@@ -1,0 +1,11 @@
+airport_code,airport_name,city,state,latitude,longitude,hub_status
+JFK,John F. Kennedy International Airport,New York,NY,40.6413,-73.7781,Major Hub
+LAX,Los Angeles International Airport,Los Angeles,CA,33.9416,-118.4085,Major Hub
+ATL,Hartsfield-Jackson Atlanta International Airport,Atlanta,GA,33.6407,-84.4277,Super Hub
+ORD,O'Hare International Airport,Chicago,IL,41.9742,-87.9073,Major Hub
+DFW,Dallas/Fort Worth International Airport,Dallas-Fort Worth,TX,32.8998,-97.0403,Major Hub
+SEA,Seattle-Tacoma International Airport,Seattle,WA,47.4502,-122.3088,Hub
+SFO,San Francisco International Airport,San Francisco,CA,37.619,-122.375,Hub
+MIA,Miami International Airport,Miami,FL,25.7959,-80.287,Hub
+BOS,Logan International Airport,Boston,MA,42.3656,-71.0096,Hub
+DEN,Denver International Airport,Denver,CO,39.8561,-104.6737,Major Hub

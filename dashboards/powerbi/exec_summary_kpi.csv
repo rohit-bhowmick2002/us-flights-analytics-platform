@@ -1,0 +1,2 @@
+Total_Flights,On_Time_Flights,Delayed_Flights,Cancelled_Flights,On_Time_Pct,Cancellation_Rate_Pct,Average_Arrival_Delay_Mins,Average_Flight_Duration_Mins
+25000,15099,9472,429,60.4,1.72,19.37,181.12

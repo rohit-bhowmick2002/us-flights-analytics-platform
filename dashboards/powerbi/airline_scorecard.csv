@@ -1,0 +1,9 @@
+airline_code,Total_Flights,On_Time_Pct,Avg_Delay_Mins,Cancellation_Rate_Pct,Total_Carrier_Delay_Mins,Airline_Name
+AA,3045,62.69,19.45,2.36,19899,American Airlines
+AS,3040,61.55,20.57,1.91,20706,Alaska Airlines
+B6,3154,62.02,19.31,1.62,19731,JetBlue Airways
+DL,3149,61.35,18.96,1.84,20431,Delta Air Lines
+F9,3133,62.46,18.73,1.47,19193,Frontier Airlines
+NK,3204,62.02,20.17,1.72,21004,Spirit Airlines
+UA,3171,63.1,18.62,1.42,19447,United Airlines
+WN,3104,61.69,19.18,1.42,18657,Southwest Airlines

@@ -1,0 +1,804 @@
+[2026-07-16 12:45:06] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: ALL] ===
+[2026-07-16 12:45:06] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 12:45:06] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 12:45:06] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 12:45:08] [INFO] [DataIngestion]: Generating 25,000 synthetic flight operations...
+[2026-07-16 12:45:12] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 12:45:12] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 12:45:12] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 12:45:13] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 12:45:13] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 12:45:13] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 12:45:13] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 12:45:13] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 12:45:13] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 12:45:13] [INFO] [Preprocessing]: Cleaned flights records: 25,000 rows retained.
+[2026-07-16 12:45:13] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 12:45:14] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.csv
+[2026-07-16 12:45:14] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 12:45:14] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 12:45:14] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 12:45:14] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 12:45:14] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 12:45:14] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 12:45:14] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 12:45:14] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 12:45:14] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 12:45:14] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98284, 'delay_reason': 0.61836}
+[2026-07-16 12:45:14] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 12:45:14] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering
+[2026-07-16 12:45:14] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 12:45:27] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: ALL] ===
+[2026-07-16 12:45:27] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 12:45:27] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 12:45:27] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 12:45:29] [INFO] [DataIngestion]: Generating 25,000 synthetic flight operations...
+[2026-07-16 12:45:33] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 12:45:33] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 12:45:33] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 12:45:33] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 12:45:34] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 12:45:34] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 12:45:34] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 12:45:34] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 12:45:34] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 12:45:34] [INFO] [Preprocessing]: Cleaned flights records: 25,000 rows retained.
+[2026-07-16 12:45:34] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 12:45:34] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.csv
+[2026-07-16 12:45:34] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 12:45:34] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 12:45:34] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 12:45:34] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 12:45:34] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 12:45:34] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 12:45:34] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 12:45:34] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 12:45:34] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 12:45:34] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98284, 'delay_reason': 0.61836}
+[2026-07-16 12:45:34] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 12:45:34] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering
+[2026-07-16 12:45:34] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 12:45:35] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/flights_features.csv
+[2026-07-16 12:45:35] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 12:45:35] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 12:45:35] [INFO] [MasterPipeline]: Phase 5: Machine Learning Model Training
+[2026-07-16 12:45:35] [INFO] [ModelTraining]: Loading ML-ready feature matrix...
+[2026-07-16 12:45:35] [INFO] [ModelTraining]: Training set: 19,656 rows | Test set: 4,915 rows
+[2026-07-16 12:45:35] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/scaler.pkl
+[2026-07-16 12:45:35] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/feature_columns.pkl
+[2026-07-16 12:45:35] [INFO] [ModelTraining]: Training Random Forest Classifier (`random_forest.pkl`)...
+[2026-07-16 12:45:36] [INFO] [Metrics]: Classification Metrics: Acc=0.6810, F1=0.6369, AUC=0.7251
+[2026-07-16 12:45:36] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/random_forest.pkl
+[2026-07-16 12:45:36] [WARNING] [ModelTraining]: XGBoost not installed in environment, saving RF as xgboost artifact for structural compatibility.
+[2026-07-16 12:45:36] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/xgboost.pkl
+[2026-07-16 12:45:36] [INFO] [ModelTraining]: Training Delay Duration Regressor...
+[2026-07-16 12:45:38] [INFO] [Metrics]: Regression Metrics: MAE=26.99, RMSE=39.13, R2=0.0727
+[2026-07-16 12:45:38] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/delay_regressor.pkl
+[2026-07-16 12:45:38] [INFO] [ModelTraining]: All models trained and saved to `models/` successfully.
+[2026-07-16 12:45:38] [INFO] [MasterPipeline]: Phase 6: Model Evaluation & Explainability Generation
+[2026-07-16 12:45:38] [INFO] [ModelEvaluation]: Running thorough model evaluation...
+[2026-07-16 12:45:39] [INFO] [ModelEvaluation]: Evaluation plots saved to /home/user/us-flights-analytics-platform/dashboards/screenshots and report saved to /home/user/us-flights-analytics-platform/reports
+[2026-07-16 12:45:39] [INFO] [Explainability]: Generating Model Explainability Feature Importance ranking...
+[2026-07-16 12:45:40] [INFO] [Explainability]: Top 5 Features:
+               Feature  Importance
+turnaround_buffer_mins    0.422560
+    scheduled_dep_hour    0.106122
+                 month    0.084022
+        distance_miles    0.060662
+         forecast_temp    0.042429
+[2026-07-16 12:45:40] [INFO] [Explainability]: Feature importance charts saved to /home/user/us-flights-analytics-platform/dashboards/screenshots/feature_importance.png and /home/user/us-flights-analytics-platform/docs/feature_importance.png
+[2026-07-16 12:45:40] [INFO] [MasterPipeline]: Phase 7: BI Dashboard Visualization & Table Export
+[2026-07-16 12:45:40] [INFO] [Visualization]: Starting batch dashboard visualization generation...
+[2026-07-16 12:45:41] [INFO] [Visualization]: Generated `executive_dashboard.png`.
+[2026-07-16 12:45:42] [INFO] [Visualization]: Generated `airline_dashboard.png`.
+[2026-07-16 12:45:42] [INFO] [Visualization]: Generated `airport_dashboard.png`.
+[2026-07-16 12:46:14] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: VISUALIZE] ===
+[2026-07-16 12:46:14] [INFO] [MasterPipeline]: Phase 7: BI Dashboard Visualization & Table Export
+[2026-07-16 12:46:14] [INFO] [Visualization]: Starting batch dashboard visualization generation...
+[2026-07-16 12:46:16] [INFO] [Visualization]: Generated `executive_dashboard.png`.
+[2026-07-16 12:46:16] [INFO] [Visualization]: Generated `airline_dashboard.png`.
+[2026-07-16 12:46:17] [INFO] [Visualization]: Generated `airport_dashboard.png`.
+[2026-07-16 12:46:18] [INFO] [Visualization]: Generated `route_dashboard.png`.
+[2026-07-16 12:46:18] [INFO] [Visualization]: Generated `weather_dashboard.png`.
+[2026-07-16 12:46:18] [INFO] [Visualization]: All 5 core dashboard screenshot packages saved successfully.
+[2026-07-16 12:46:18] [INFO] [DashboardExporter]: Exporting aggregated BI data tables to `dashboards/powerbi/`...
+[2026-07-16 12:46:19] [INFO] [Helpers]: Saved DataFrame (1 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/exec_summary_kpi.csv
+[2026-07-16 12:46:19] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/airline_scorecard.csv
+[2026-07-16 12:46:19] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/airport_metrics.csv
+[2026-07-16 12:46:19] [INFO] [Helpers]: Saved DataFrame (90 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/route_popularity.csv
+[2026-07-16 12:46:19] [INFO] [DashboardExporter]: Successfully exported 4 core BI data models to `dashboards/powerbi/`.
+[2026-07-16 12:46:19] [INFO] [MasterPipeline]: === Master Pipeline Execution Completed Successfully ===
+[2026-07-16 12:47:46] [INFO] [InferenceEngine]: Loaded inference pipeline with model: random_forest.pkl
+[2026-07-16 12:47:46] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: DRY_RUN] ===
+[2026-07-16 12:47:46] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 12:47:46] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 12:47:46] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 12:47:48] [INFO] [DataIngestion]: Generating 200 synthetic flight operations...
+[2026-07-16 12:47:48] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 12:47:48] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 12:47:48] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 12:47:48] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 12:47:48] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 12:47:48] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 12:47:48] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 12:47:48] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 12:47:48] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 12:47:48] [INFO] [Preprocessing]: Cleaned flights records: 200 rows retained.
+[2026-07-16 12:47:48] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 12:47:48] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.csv
+[2026-07-16 12:47:48] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 12:47:48] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 12:47:48] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 12:47:48] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 12:47:48] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 12:47:48] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 12:47:48] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 12:47:48] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 12:47:48] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 12:47:48] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98, 'delay_reason': 0.75}
+[2026-07-16 12:47:48] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 12:47:48] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering
+[2026-07-16 12:47:48] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 12:47:48] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/flights_features.csv
+[2026-07-16 12:47:48] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 12:47:48] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 12:47:48] [INFO] [MasterPipeline]: Dry-run verification complete. Exiting before heavy ML training.
+[2026-07-16 12:47:48] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 12:47:49] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 12:47:49] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 12:47:49] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 12:47:49] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 12:47:57] [INFO] [InferenceEngine]: Loaded inference pipeline with model: random_forest.pkl
+[2026-07-16 12:47:57] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: DRY_RUN] ===
+[2026-07-16 12:47:57] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 12:47:57] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 12:47:57] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 12:48:00] [INFO] [DataIngestion]: Generating 200 synthetic flight operations...
+[2026-07-16 12:48:00] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 12:48:00] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 12:48:00] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 12:48:00] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 12:48:00] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 12:48:00] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 12:48:00] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 12:48:00] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 12:48:00] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 12:48:00] [INFO] [Preprocessing]: Cleaned flights records: 200 rows retained.
+[2026-07-16 12:48:00] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 12:48:00] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.csv
+[2026-07-16 12:48:00] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 12:48:00] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 12:48:00] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 12:48:00] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98, 'delay_reason': 0.75}
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 12:48:00] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering
+[2026-07-16 12:48:00] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 12:48:00] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/flights_features.csv
+[2026-07-16 12:48:00] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 12:48:00] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 12:48:00] [INFO] [MasterPipeline]: Dry-run verification complete. Exiting before heavy ML training.
+[2026-07-16 12:48:00] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 12:48:00] [INFO] [Preprocessing]: Cleaned flights records: 2 rows retained.
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 12:48:00] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 83 route pairs (edges).
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:01:51] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.csv
+[2026-07-16 13:01:51] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:01:51] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.csv
+[2026-07-16 13:01:51] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         BOS                0.041667  0.139250                     31                      19                 50
+         DEN                0.085648  0.117319                     25                      19                 44
+         SFO                0.086806  0.112773                     24                      17                 41
+         MIA                0.048611  0.109029                     23                      19                 42
+         SEA                0.062500  0.104964                     21                      22                 43
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:01:51] [INFO] [NetworkGraph]: Simulation Complete: 0 total flights impacted across 0 aircraft tails. Multiplier=0.0x
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 83 route pairs (edges).
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:02:05] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.csv
+[2026-07-16 13:02:05] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:02:05] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.csv
+[2026-07-16 13:02:05] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         BOS                0.041667  0.139250                     31                      19                 50
+         DEN                0.085648  0.117319                     25                      19                 44
+         SFO                0.086806  0.112773                     24                      17                 41
+         MIA                0.048611  0.109029                     23                      19                 42
+         SEA                0.062500  0.104964                     21                      22                 43
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:02:05] [INFO] [NetworkGraph]: Simulation Complete: 0 total flights impacted across 0 aircraft tails. Multiplier=0.0x
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 83 route pairs (edges).
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:02:21] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.csv
+[2026-07-16 13:02:21] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:02:21] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.csv
+[2026-07-16 13:02:21] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         BOS                0.041667  0.139250                     31                      19                 50
+         DEN                0.085648  0.117319                     25                      19                 44
+         SFO                0.086806  0.112773                     24                      17                 41
+         MIA                0.048611  0.109029                     23                      19                 42
+         SEA                0.062500  0.104964                     21                      22                 43
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:02:21] [INFO] [NetworkGraph]: Simulation Complete: 110 total flights impacted across 18 aircraft tails. Multiplier=2.62x
+[2026-07-16 13:02:53] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 13:03:02] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 13:03:02] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/flights_features.csv
+[2026-07-16 13:03:02] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 13:03:02] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 13:03:02] [INFO] [ModelTraining]: Loading ML-ready feature matrix...
+[2026-07-16 13:03:02] [INFO] [ModelTraining]: Training set: 156 rows | Test set: 40 rows
+[2026-07-16 13:03:02] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/scaler.pkl
+[2026-07-16 13:03:02] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/feature_columns.pkl
+[2026-07-16 13:03:02] [INFO] [ModelTraining]: Training Random Forest Classifier (`random_forest.pkl`)...
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8750, F1=0.6667, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8750, F1=0.6667, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8750, F1=0.6667, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8750, F1=0.6667, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8750, F1=0.6667, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8500, F1=0.5714, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8500, F1=0.5714, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8500, F1=0.5714, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8500, F1=0.5714, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8500, F1=0.5714, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8500, F1=0.5714, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8250, F1=0.4615, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8250, F1=0.4615, AUC=0.6333
+[2026-07-16 13:03:02] [INFO] [Metrics]: Classification Metrics: Acc=0.8250, F1=0.4615, AUC=0.6333
+[2026-07-16 13:03:03] [INFO] [Metrics]: Classification Metrics: Acc=0.8250, F1=0.4615, AUC=0.6333
+[2026-07-16 13:03:03] [INFO] [Metrics]: Classification Metrics: Acc=0.8250, F1=0.4615, AUC=0.6333
+[2026-07-16 13:03:03] [INFO] [ModelTraining]: Optimal F1 decision threshold determined: 0.35 (F1=0.6667)
+[2026-07-16 13:03:03] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/best_threshold.pkl
+[2026-07-16 13:03:03] [INFO] [Metrics]: Classification Metrics: Acc=0.8750, F1=0.6667, AUC=0.6333
+[2026-07-16 13:03:03] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/random_forest.pkl
+[2026-07-16 13:03:03] [INFO] [ModelTraining]: Training Tuned XGBoost Classifier (`xgboost.pkl`)...
+[2026-07-16 13:03:03] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/xgboost.pkl
+[2026-07-16 13:03:03] [INFO] [ModelTraining]: Training Tuned Delay Duration Regressor...
+[2026-07-16 13:03:03] [INFO] [Metrics]: Regression Metrics: MAE=12.76, RMSE=17.61, R2=0.2806
+[2026-07-16 13:03:03] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/delay_regressor.pkl
+[2026-07-16 13:03:03] [INFO] [ModelTraining]: All models trained and saved to `models/` successfully.
+[2026-07-16 13:03:19] [INFO] [SHAPExplainer]: Starting Advanced SHAP Explainability & Interaction Analysis...
+[2026-07-16 13:03:19] [INFO] [SHAPExplainer]: Computing exact Shapley values using TreeExplainer...
+[2026-07-16 13:03:20] [INFO] [SHAPExplainer]: Generating SHAP Beeswarm Plot (`shap_beeswarm.png`)...
+[2026-07-16 13:03:21] [INFO] [SHAPExplainer]: Generating SHAP Dependence Interaction Plot (`shap_dependence_turnaround.png`)...
+[2026-07-16 13:03:21] [INFO] [Helpers]: Saved DataFrame (51 rows) to /home/user/us-flights-analytics-platform/reports/shap_feature_importance.csv
+[2026-07-16 13:03:21] [INFO] [SHAPExplainer]: SHAP Analysis complete. Top 5 Features by Mean Absolute SHAP:
+                      Feature  Mean_Absolute_SHAP
+carrier_route_historical_risk             3.30925
+                        month             0.77111
+               distance_miles             0.38606
+  turnaround_wind_interaction             0.32405
+                dest_pagerank             0.22173
+[2026-07-16 13:03:40] [INFO] [TimeForecaster]: Training temporal forecasters and projecting 14 days forward...
+[2026-07-16 13:03:40] [INFO] [TimeForecaster]: Aggregating daily time-series metrics per hub airport...
+[2026-07-16 13:03:41] [WARNING] [Helpers]: Parquet engine failed, saved as CSV: /home/user/us-flights-analytics-platform/data/processed/hub_capacity_forecast_14d.csv
+[2026-07-16 13:03:41] [INFO] [Helpers]: Saved DataFrame (140 rows) to /home/user/us-flights-analytics-platform/data/processed/hub_capacity_forecast_14d.parquet
+[2026-07-16 13:03:41] [INFO] [TimeForecaster]: Saved 14-day capacity forecast across 10 hubs successfully.
+[2026-07-16 13:03:41] [INFO] [TimeForecaster]: Plotting Hub Capacity & Disruption Surge chart (`hub_capacity_forecast.png`)...
+[2026-07-16 13:03:42] [INFO] [TimeForecaster]: Sample Forecast Output:
+airport_code forecast_date  projected_flight_volume  projected_delayed_flights  projected_delay_rate_pct disruption_surge_alert
+         JFK    2024-12-30                       10                          0                       0.0                 NORMAL
+         JFK    2024-12-31                       10                          0                       0.0                 NORMAL
+         JFK    2025-01-01                       10                          0                       0.0                 NORMAL
+         JFK    2025-01-02                       10                          0                       0.0                 NORMAL
+         JFK    2025-01-03                       10                          0                       0.0                 NORMAL
+         JFK    2025-01-04                       10                          0                       0.0                 NORMAL
+[2026-07-16 13:05:22] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: ALL] ===
+[2026-07-16 13:05:22] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 13:05:22] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 13:05:22] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 13:05:25] [INFO] [DataIngestion]: Generating 25,000 synthetic flight operations...
+[2026-07-16 13:05:30] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 13:05:30] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 13:05:30] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 13:05:30] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 13:05:30] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 13:05:30] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 13:05:30] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 13:05:30] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 13:05:30] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:05:30] [INFO] [Preprocessing]: Cleaned flights records: 25,000 rows retained.
+[2026-07-16 13:05:30] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 13:05:31] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 13:05:31] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 13:05:31] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 13:05:31] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 13:05:31] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 13:05:31] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:05:31] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:05:31] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:05:31] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:05:31] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98284, 'delay_reason': 0.61836}
+[2026-07-16 13:05:31] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 13:05:31] [INFO] [MasterPipeline]: Phase 3.5: Graph Network Topology & Centrality Calculation
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 90 route pairs (edges).
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:05:31] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:05:31] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         SFO                     0.0  0.102605                   2585                    2493               5078
+         DFW                     0.0  0.101736                   2555                    2507               5062
+         JFK                     0.0  0.101184                   2531                    2546               5077
+         SEA                     0.0  0.101032                   2535                    2486               5021
+         DEN                     0.0  0.099891                   2498                    2480               4978
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:05:31] [INFO] [NetworkGraph]: Simulation Complete: 202 total flights impacted across 101 aircraft tails. Multiplier=1.8x
+[2026-07-16 13:05:31] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering & Interaction Enrichment
+[2026-07-16 13:05:31] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 13:05:31] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 13:05:31] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 13:05:31] [INFO] [MasterPipeline]: Phase 5: Machine Learning Model Training & Threshold Optimization
+[2026-07-16 13:05:31] [INFO] [ModelTraining]: Loading ML-ready feature matrix...
+[2026-07-16 13:05:31] [INFO] [ModelTraining]: Training set: 19,656 rows | Test set: 4,915 rows
+[2026-07-16 13:05:31] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/scaler.pkl
+[2026-07-16 13:05:31] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/feature_columns.pkl
+[2026-07-16 13:05:31] [INFO] [ModelTraining]: Training Random Forest Classifier (`random_forest.pkl`)...
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6405, F1=0.6366, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6470, F1=0.6363, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6614, F1=0.6428, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6694, F1=0.6415, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6745, F1=0.6409, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6785, F1=0.6389, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6846, F1=0.6400, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6828, F1=0.6294, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6846, F1=0.6220, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6859, F1=0.6111, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6848, F1=0.5935, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6800, F1=0.5673, AUC=0.7310
+[2026-07-16 13:05:33] [INFO] [Metrics]: Classification Metrics: Acc=0.6814, F1=0.5461, AUC=0.7310
+[2026-07-16 13:05:34] [INFO] [Metrics]: Classification Metrics: Acc=0.6789, F1=0.5130, AUC=0.7310
+[2026-07-16 13:05:34] [INFO] [Metrics]: Classification Metrics: Acc=0.6753, F1=0.4777, AUC=0.7310
+[2026-07-16 13:05:34] [INFO] [Metrics]: Classification Metrics: Acc=0.6712, F1=0.4346, AUC=0.7310
+[2026-07-16 13:05:34] [INFO] [ModelTraining]: Optimal F1 decision threshold determined: 0.39 (F1=0.6428)
+[2026-07-16 13:05:34] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/best_threshold.pkl
+[2026-07-16 13:05:34] [INFO] [Metrics]: Classification Metrics: Acc=0.6614, F1=0.6428, AUC=0.7310
+[2026-07-16 13:05:34] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/random_forest.pkl
+[2026-07-16 13:05:34] [INFO] [ModelTraining]: Training Tuned XGBoost Classifier (`xgboost.pkl`)...
+[2026-07-16 13:05:34] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/xgboost.pkl
+[2026-07-16 13:05:34] [INFO] [ModelTraining]: Training Tuned Delay Duration Regressor...
+[2026-07-16 13:05:40] [INFO] [Metrics]: Regression Metrics: MAE=27.18, RMSE=39.17, R2=0.0710
+[2026-07-16 13:05:40] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/delay_regressor.pkl
+[2026-07-16 13:05:40] [INFO] [ModelTraining]: All models trained and saved to `models/` successfully.
+[2026-07-16 13:05:40] [INFO] [MasterPipeline]: Phase 6: Model Evaluation, SHAP Explainability & 14-Day Hub Forecasting
+[2026-07-16 13:05:40] [INFO] [ModelEvaluation]: Running thorough model evaluation...
+[2026-07-16 13:05:41] [INFO] [ModelEvaluation]: Evaluation plots saved to /home/user/us-flights-analytics-platform/dashboards/screenshots and report saved to /home/user/us-flights-analytics-platform/reports
+[2026-07-16 13:05:41] [INFO] [Explainability]: Generating Model Explainability Feature Importance ranking...
+[2026-07-16 13:05:42] [INFO] [Explainability]: Top 5 Features:
+                      Feature  Importance
+  turnaround_wind_interaction    0.173533
+       turnaround_buffer_mins    0.120432
+carrier_route_historical_risk    0.081326
+               distance_miles    0.070876
+           scheduled_dep_hour    0.067460
+[2026-07-16 13:05:42] [INFO] [Explainability]: Feature importance charts saved to /home/user/us-flights-analytics-platform/dashboards/screenshots/feature_importance.png and /home/user/us-flights-analytics-platform/docs/feature_importance.png
+[2026-07-16 13:05:42] [INFO] [SHAPExplainer]: Starting Advanced SHAP Explainability & Interaction Analysis...
+[2026-07-16 13:05:42] [INFO] [SHAPExplainer]: Computing exact Shapley values using TreeExplainer...
+[2026-07-16 13:05:43] [INFO] [SHAPExplainer]: Generating SHAP Beeswarm Plot (`shap_beeswarm.png`)...
+[2026-07-16 13:05:45] [INFO] [SHAPExplainer]: Generating SHAP Dependence Interaction Plot (`shap_dependence_turnaround.png`)...
+[2026-07-16 13:05:46] [INFO] [Helpers]: Saved DataFrame (51 rows) to /home/user/us-flights-analytics-platform/reports/shap_feature_importance.csv
+[2026-07-16 13:05:46] [INFO] [SHAPExplainer]: SHAP Analysis complete. Top 5 Features by Mean Absolute SHAP:
+                      Feature  Mean_Absolute_SHAP
+  turnaround_wind_interaction             0.55709
+           scheduled_dep_hour             0.35321
+       turnaround_buffer_mins             0.27871
+carrier_route_historical_risk             0.26131
+               distance_miles             0.08938
+[2026-07-16 13:05:46] [INFO] [TimeForecaster]: Training temporal forecasters and projecting 14 days forward...
+[2026-07-16 13:05:46] [INFO] [TimeForecaster]: Aggregating daily time-series metrics per hub airport...
+[2026-07-16 13:05:48] [INFO] [Helpers]: Saved DataFrame (140 rows) to /home/user/us-flights-analytics-platform/data/processed/hub_capacity_forecast_14d.parquet
+[2026-07-16 13:05:48] [INFO] [TimeForecaster]: Saved 14-day capacity forecast across 10 hubs successfully.
+[2026-07-16 13:05:48] [INFO] [TimeForecaster]: Plotting Hub Capacity & Disruption Surge chart (`hub_capacity_forecast.png`)...
+[2026-07-16 13:05:48] [INFO] [TimeForecaster]: Sample Forecast Output:
+airport_code forecast_date  projected_flight_volume  projected_delayed_flights  projected_delay_rate_pct disruption_surge_alert
+         JFK    2024-12-31                       10                          2                      20.0               MODERATE
+         JFK    2025-01-01                       10                          3                      30.0       HIGH SURGE ALERT
+         JFK    2025-01-02                       10                          2                      20.0               MODERATE
+         JFK    2025-01-03                       10                          2                      20.0               MODERATE
+         JFK    2025-01-04                       10                          2                      20.0               MODERATE
+         JFK    2025-01-05                       10                          2                      20.0               MODERATE
+[2026-07-16 13:05:48] [INFO] [MasterPipeline]: Phase 7: BI Dashboard Visualization & Table Export
+[2026-07-16 13:05:48] [INFO] [Visualization]: Starting batch dashboard visualization generation...
+[2026-07-16 13:05:50] [INFO] [Visualization]: Generated `executive_dashboard.png`.
+[2026-07-16 13:05:50] [INFO] [Visualization]: Generated `airline_dashboard.png`.
+[2026-07-16 13:05:51] [INFO] [Visualization]: Generated `airport_dashboard.png`.
+[2026-07-16 13:05:52] [INFO] [Visualization]: Generated `route_dashboard.png`.
+[2026-07-16 13:05:53] [INFO] [Visualization]: Generated `weather_dashboard.png`.
+[2026-07-16 13:05:53] [INFO] [Visualization]: All 5 core dashboard screenshot packages saved successfully.
+[2026-07-16 13:05:53] [INFO] [DashboardExporter]: Exporting aggregated BI data tables to `dashboards/powerbi/`...
+[2026-07-16 13:05:53] [INFO] [Helpers]: Saved DataFrame (1 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/exec_summary_kpi.csv
+[2026-07-16 13:05:53] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/airline_scorecard.csv
+[2026-07-16 13:05:53] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/airport_metrics.csv
+[2026-07-16 13:05:53] [INFO] [Helpers]: Saved DataFrame (90 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/route_popularity.csv
+[2026-07-16 13:05:53] [INFO] [DashboardExporter]: Successfully exported 4 core BI data models to `dashboards/powerbi/`.
+[2026-07-16 13:05:53] [INFO] [MasterPipeline]: === Master Pipeline Execution Completed Successfully ===
+[2026-07-16 13:06:01] [INFO] [InferenceEngine]: Loaded inference pipeline with model: random_forest.pkl
+[2026-07-16 13:06:01] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: DRY_RUN] ===
+[2026-07-16 13:06:01] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 13:06:01] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 13:06:01] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 13:06:04] [INFO] [DataIngestion]: Generating 200 synthetic flight operations...
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 13:06:04] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 13:06:04] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 13:06:04] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 13:06:04] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:06:04] [INFO] [Preprocessing]: Cleaned flights records: 200 rows retained.
+[2026-07-16 13:06:04] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 13:06:04] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 13:06:04] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:06:04] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98, 'delay_reason': 0.75}
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 13:06:04] [INFO] [MasterPipeline]: Phase 3.5: Graph Network Topology & Centrality Calculation
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 83 route pairs (edges).
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         BOS                0.041667  0.139250                     31                      19                 50
+         DEN                0.085648  0.117319                     25                      19                 44
+         SFO                0.086806  0.112773                     24                      17                 41
+         MIA                0.048611  0.109029                     23                      19                 42
+         SEA                0.062500  0.104964                     21                      22                 43
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:06:04] [INFO] [NetworkGraph]: Simulation Complete: 110 total flights impacted across 18 aircraft tails. Multiplier=2.62x
+[2026-07-16 13:06:04] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering & Interaction Enrichment
+[2026-07-16 13:06:04] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 13:06:04] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 13:06:04] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 13:06:04] [INFO] [MasterPipeline]: Dry-run verification complete. Exiting before heavy ML training.
+[2026-07-16 13:06:04] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:06:04] [INFO] [Preprocessing]: Cleaned flights records: 2 rows retained.
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:06:04] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:06:23] [INFO] [InferenceEngine]: Loaded inference pipeline with model: random_forest.pkl
+[2026-07-16 13:06:23] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: DRY_RUN] ===
+[2026-07-16 13:06:23] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 13:06:23] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 13:06:23] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 13:06:25] [INFO] [DataIngestion]: Generating 200 synthetic flight operations...
+[2026-07-16 13:06:25] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 13:06:25] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 13:06:25] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 13:06:25] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 13:06:25] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 13:06:25] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 13:06:25] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 13:06:25] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 13:06:25] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:06:25] [INFO] [Preprocessing]: Cleaned flights records: 200 rows retained.
+[2026-07-16 13:06:25] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 13:06:25] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 13:06:25] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 13:06:25] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 13:06:25] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 13:06:25] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 13:06:25] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:06:25] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:06:25] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:06:25] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:06:25] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98, 'delay_reason': 0.75}
+[2026-07-16 13:06:25] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 13:06:25] [INFO] [MasterPipeline]: Phase 3.5: Graph Network Topology & Centrality Calculation
+[2026-07-16 13:06:25] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:06:25] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 83 route pairs (edges).
+[2026-07-16 13:06:25] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:06:26] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:06:26] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:06:26] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:06:26] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:06:26] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:06:26] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         BOS                0.041667  0.139250                     31                      19                 50
+         DEN                0.085648  0.117319                     25                      19                 44
+         SFO                0.086806  0.112773                     24                      17                 41
+         MIA                0.048611  0.109029                     23                      19                 42
+         SEA                0.062500  0.104964                     21                      22                 43
+[2026-07-16 13:06:26] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:06:26] [INFO] [NetworkGraph]: Simulation Complete: 110 total flights impacted across 18 aircraft tails. Multiplier=2.62x
+[2026-07-16 13:06:26] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering & Interaction Enrichment
+[2026-07-16 13:06:26] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 13:06:26] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 13:06:26] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 13:06:26] [INFO] [MasterPipeline]: Dry-run verification complete. Exiting before heavy ML training.
+[2026-07-16 13:06:26] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:06:26] [INFO] [Preprocessing]: Cleaned flights records: 2 rows retained.
+[2026-07-16 13:06:26] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:06:26] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:06:26] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:06:26] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:07:22] [INFO] [InferenceEngine]: Loaded inference pipeline with model: random_forest.pkl
+[2026-07-16 13:07:22] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: DRY_RUN] ===
+[2026-07-16 13:07:22] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 13:07:22] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 13:07:22] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 13:07:24] [INFO] [DataIngestion]: Generating 200 synthetic flight operations...
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 13:07:24] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 13:07:24] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 13:07:24] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 13:07:24] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:07:24] [INFO] [Preprocessing]: Cleaned flights records: 200 rows retained.
+[2026-07-16 13:07:24] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 13:07:24] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 13:07:24] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:07:24] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98, 'delay_reason': 0.75}
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 13:07:24] [INFO] [MasterPipeline]: Phase 3.5: Graph Network Topology & Centrality Calculation
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 83 route pairs (edges).
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         BOS                0.041667  0.139250                     31                      19                 50
+         DEN                0.085648  0.117319                     25                      19                 44
+         SFO                0.086806  0.112773                     24                      17                 41
+         MIA                0.048611  0.109029                     23                      19                 42
+         SEA                0.062500  0.104964                     21                      22                 43
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:07:24] [INFO] [NetworkGraph]: Simulation Complete: 110 total flights impacted across 18 aircraft tails. Multiplier=2.62x
+[2026-07-16 13:07:24] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering & Interaction Enrichment
+[2026-07-16 13:07:24] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 13:07:24] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 13:07:24] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 13:07:24] [INFO] [MasterPipeline]: Dry-run verification complete. Exiting before heavy ML training.
+[2026-07-16 13:07:24] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:07:24] [INFO] [Preprocessing]: Cleaned flights records: 2 rows retained.
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:07:24] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:19:08] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: ALL] ===
+[2026-07-16 13:19:08] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 13:19:08] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 13:19:08] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 13:19:11] [INFO] [DataIngestion]: Generating 25,000 synthetic flight operations...
+[2026-07-16 13:19:15] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 13:19:15] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 13:19:15] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 13:19:15] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 13:19:16] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 13:19:16] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 13:19:16] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 13:19:16] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 13:19:16] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:19:16] [INFO] [Preprocessing]: Cleaned flights records: 25,000 rows retained.
+[2026-07-16 13:19:16] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 13:19:16] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 13:19:16] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 13:19:16] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 13:19:16] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 13:19:16] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 13:19:16] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:19:16] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:19:16] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:19:16] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:19:16] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98284, 'delay_reason': 0.61836}
+[2026-07-16 13:19:16] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 13:19:16] [INFO] [MasterPipeline]: Phase 3.5: Graph Network Topology & Centrality Calculation
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 90 route pairs (edges).
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:19:16] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:19:16] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         SFO                     0.0  0.102605                   2585                    2493               5078
+         DFW                     0.0  0.101736                   2555                    2507               5062
+         JFK                     0.0  0.101184                   2531                    2546               5077
+         SEA                     0.0  0.101032                   2535                    2486               5021
+         DEN                     0.0  0.099891                   2498                    2480               4978
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:19:16] [INFO] [NetworkGraph]: Simulation Complete: 202 total flights impacted across 101 aircraft tails. Multiplier=1.8x
+[2026-07-16 13:19:16] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering & Interaction Enrichment
+[2026-07-16 13:19:16] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 13:19:16] [INFO] [Helpers]: Saved DataFrame (25,000 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 13:19:16] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 13:19:16] [INFO] [MasterPipeline]: Phase 5: Machine Learning Model Training & Threshold Optimization
+[2026-07-16 13:19:16] [INFO] [ModelTraining]: Loading ML-ready feature matrix...
+[2026-07-16 13:19:17] [INFO] [ModelTraining]: Training set: 19,656 rows | Test set: 4,915 rows
+[2026-07-16 13:19:17] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/scaler.pkl
+[2026-07-16 13:19:17] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/feature_columns.pkl
+[2026-07-16 13:19:17] [INFO] [ModelTraining]: Training Random Forest Classifier (`random_forest.pkl`)...
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6405, F1=0.6366, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6470, F1=0.6363, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6614, F1=0.6428, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6694, F1=0.6415, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6745, F1=0.6409, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6785, F1=0.6389, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6846, F1=0.6400, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6828, F1=0.6294, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6846, F1=0.6220, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6859, F1=0.6111, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6848, F1=0.5935, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6800, F1=0.5673, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6814, F1=0.5461, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6789, F1=0.5130, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6753, F1=0.4777, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6712, F1=0.4346, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [ModelTraining]: Optimal F1 decision threshold determined: 0.39 (F1=0.6428)
+[2026-07-16 13:19:19] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/best_threshold.pkl
+[2026-07-16 13:19:19] [INFO] [Metrics]: Classification Metrics: Acc=0.6614, F1=0.6428, AUC=0.7310
+[2026-07-16 13:19:19] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/random_forest.pkl
+[2026-07-16 13:19:19] [INFO] [ModelTraining]: Training Tuned XGBoost Classifier (`xgboost.pkl`)...
+[2026-07-16 13:19:20] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/xgboost.pkl
+[2026-07-16 13:19:20] [INFO] [ModelTraining]: Training Tuned Delay Duration Regressor...
+[2026-07-16 13:19:25] [INFO] [Metrics]: Regression Metrics: MAE=27.18, RMSE=39.17, R2=0.0710
+[2026-07-16 13:19:25] [INFO] [Helpers]: Saved artifact to /home/user/us-flights-analytics-platform/models/delay_regressor.pkl
+[2026-07-16 13:19:25] [INFO] [ModelTraining]: All models trained and saved to `models/` successfully.
+[2026-07-16 13:19:25] [INFO] [MasterPipeline]: Phase 6: Model Evaluation, SHAP Explainability & 14-Day Hub Forecasting
+[2026-07-16 13:19:25] [INFO] [ModelEvaluation]: Running thorough model evaluation...
+[2026-07-16 13:19:26] [INFO] [ModelEvaluation]: Evaluation plots saved to /home/user/us-flights-analytics-platform/dashboards/screenshots and report saved to /home/user/us-flights-analytics-platform/reports
+[2026-07-16 13:19:26] [INFO] [Explainability]: Generating Model Explainability Feature Importance ranking...
+[2026-07-16 13:19:27] [INFO] [Explainability]: Top 5 Features:
+                      Feature  Importance
+  turnaround_wind_interaction    0.173533
+       turnaround_buffer_mins    0.120432
+carrier_route_historical_risk    0.081326
+               distance_miles    0.070876
+           scheduled_dep_hour    0.067460
+[2026-07-16 13:19:27] [INFO] [Explainability]: Feature importance charts saved to /home/user/us-flights-analytics-platform/dashboards/screenshots/feature_importance.png and /home/user/us-flights-analytics-platform/docs/feature_importance.png
+[2026-07-16 13:19:27] [INFO] [SHAPExplainer]: Starting Advanced SHAP Explainability & Interaction Analysis...
+[2026-07-16 13:19:27] [INFO] [SHAPExplainer]: Computing exact Shapley values using TreeExplainer...
+[2026-07-16 13:19:28] [INFO] [SHAPExplainer]: Generating SHAP Beeswarm Plot (`shap_beeswarm.png`)...
+[2026-07-16 13:19:30] [INFO] [SHAPExplainer]: Generating SHAP Dependence Interaction Plot (`shap_dependence_turnaround.png`)...
+[2026-07-16 13:19:31] [INFO] [Helpers]: Saved DataFrame (51 rows) to /home/user/us-flights-analytics-platform/reports/shap_feature_importance.csv
+[2026-07-16 13:19:31] [INFO] [SHAPExplainer]: SHAP Analysis complete. Top 5 Features by Mean Absolute SHAP:
+                      Feature  Mean_Absolute_SHAP
+  turnaround_wind_interaction             0.55709
+           scheduled_dep_hour             0.35321
+       turnaround_buffer_mins             0.27871
+carrier_route_historical_risk             0.26131
+               distance_miles             0.08938
+[2026-07-16 13:19:31] [INFO] [TimeForecaster]: Training temporal forecasters and projecting 14 days forward...
+[2026-07-16 13:19:31] [INFO] [TimeForecaster]: Aggregating daily time-series metrics per hub airport...
+[2026-07-16 13:19:33] [INFO] [Helpers]: Saved DataFrame (140 rows) to /home/user/us-flights-analytics-platform/data/processed/hub_capacity_forecast_14d.parquet
+[2026-07-16 13:19:33] [INFO] [TimeForecaster]: Saved 14-day capacity forecast across 10 hubs successfully.
+[2026-07-16 13:19:33] [INFO] [TimeForecaster]: Plotting Hub Capacity & Disruption Surge chart (`hub_capacity_forecast.png`)...
+[2026-07-16 13:19:33] [INFO] [TimeForecaster]: Sample Forecast Output:
+airport_code forecast_date  projected_flight_volume  projected_delayed_flights  projected_delay_rate_pct disruption_surge_alert
+         JFK    2024-12-31                       10                          2                      20.0               MODERATE
+         JFK    2025-01-01                       10                          3                      30.0       HIGH SURGE ALERT
+         JFK    2025-01-02                       10                          2                      20.0               MODERATE
+         JFK    2025-01-03                       10                          2                      20.0               MODERATE
+         JFK    2025-01-04                       10                          2                      20.0               MODERATE
+         JFK    2025-01-05                       10                          2                      20.0               MODERATE
+[2026-07-16 13:19:33] [INFO] [MasterPipeline]: Phase 7: BI Dashboard Visualization & Table Export
+[2026-07-16 13:19:33] [INFO] [Visualization]: Starting batch dashboard visualization generation...
+[2026-07-16 13:19:34] [INFO] [Visualization]: Generated `executive_dashboard.png`.
+[2026-07-16 13:19:35] [INFO] [Visualization]: Generated `airline_dashboard.png`.
+[2026-07-16 13:19:36] [INFO] [Visualization]: Generated `airport_dashboard.png`.
+[2026-07-16 13:19:36] [INFO] [Visualization]: Generated `route_dashboard.png`.
+[2026-07-16 13:19:37] [INFO] [Visualization]: Generated `weather_dashboard.png`.
+[2026-07-16 13:19:37] [INFO] [Visualization]: All 5 core dashboard screenshot packages saved successfully.
+[2026-07-16 13:19:37] [INFO] [DashboardExporter]: Exporting aggregated BI data tables to `dashboards/powerbi/`...
+[2026-07-16 13:19:37] [INFO] [Helpers]: Saved DataFrame (1 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/exec_summary_kpi.csv
+[2026-07-16 13:19:37] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/airline_scorecard.csv
+[2026-07-16 13:19:37] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/airport_metrics.csv
+[2026-07-16 13:19:37] [INFO] [Helpers]: Saved DataFrame (90 rows) to /home/user/us-flights-analytics-platform/dashboards/powerbi/route_popularity.csv
+[2026-07-16 13:19:37] [INFO] [DashboardExporter]: Successfully exported 4 core BI data models to `dashboards/powerbi/`.
+[2026-07-16 13:19:37] [INFO] [MasterPipeline]: === Master Pipeline Execution Completed Successfully ===
+[2026-07-16 13:20:09] [INFO] [InferenceEngine]: Loaded inference pipeline with model: random_forest.pkl
+[2026-07-16 13:20:09] [INFO] [MasterPipeline]: === Starting Enterprise Aviation Analytics Pipeline [Mode: DRY_RUN] ===
+[2026-07-16 13:20:09] [INFO] [MasterPipeline]: Phase 1: Data Ingestion & Synthetic Generation
+[2026-07-16 13:20:09] [INFO] [DataIngestion]: Starting Data Ingestion workflow...
+[2026-07-16 13:20:09] [INFO] [DataIngestion]: Generating hourly weather station observations...
+[2026-07-16 13:20:12] [INFO] [DataIngestion]: Generating 200 synthetic flight operations...
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (8 rows) to /home/user/us-flights-analytics-platform/data/raw/airlines/airlines.csv
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/raw/airports/airports.csv
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (500 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/aircraft.csv
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (29,210 rows) to /home/user/us-flights-analytics-platform/data/raw/weather/weather_hourly.csv
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/raw/flights/flights_raw.csv
+[2026-07-16 13:20:12] [INFO] [DataIngestion]: Ingestion complete. All raw tables stored.
+[2026-07-16 13:20:12] [INFO] [MasterPipeline]: Phase 2: Data Preprocessing & Clean Up
+[2026-07-16 13:20:12] [INFO] [Preprocessing]: Running Preprocessing pipeline...
+[2026-07-16 13:20:12] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:20:12] [INFO] [Preprocessing]: Cleaned flights records: 200 rows retained.
+[2026-07-16 13:20:12] [INFO] [Preprocessing]: Joining flights with aircraft and weather dimensions...
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_cleaned.parquet
+[2026-07-16 13:20:12] [INFO] [Preprocessing]: Preprocessing completed successfully.
+[2026-07-16 13:20:12] [INFO] [MasterPipeline]: Phase 3: Automated Quality & Schema Validation
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Running Data Quality Validation Suite...
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Primary key 'flight_id' unique check passed.
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)
+[2026-07-16 13:20:12] [WARNING] [DataValidation]: Columns exceeding max null ratio (0.05): {'cancellation_reason': 0.98, 'delay_reason': 0.75}
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Dataset passed all essential validation checks.
+[2026-07-16 13:20:12] [INFO] [MasterPipeline]: Phase 3.5: Graph Network Topology & Centrality Calculation
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Building Directed Airspace Network Graph from flight facts...
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Graph built successfully: 10 airports (nodes) | 83 route pairs (edges).
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Computing network topology centrality metrics (PageRank & Betweenness)...
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (10 rows) to /home/user/us-flights-analytics-platform/data/processed/airport_graph_metrics.parquet
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Saved airport graph topology metrics successfully.
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Top 5 Central Hubs by PageRank:
+airport_code  betweenness_centrality  pagerank  inbound_flight_volume  outbound_flight_volume  total_node_degree
+         BOS                0.041667  0.139250                     31                      19                 50
+         DEN                0.085648  0.117319                     25                      19                 44
+         SFO                0.086806  0.112773                     24                      17                 41
+         MIA                0.048611  0.109029                     23                      19                 42
+         SEA                0.062500  0.104964                     21                      22                 43
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Simulating 4-hour closure at hub [ORD]...
+[2026-07-16 13:20:12] [INFO] [NetworkGraph]: Simulation Complete: 110 total flights impacted across 18 aircraft tails. Multiplier=2.62x
+[2026-07-16 13:20:12] [INFO] [MasterPipeline]: Phase 4: Leakage-Free Feature Engineering & Interaction Enrichment
+[2026-07-16 13:20:12] [INFO] [FeatureEngineering]: Starting Feature Engineering...
+[2026-07-16 13:20:12] [INFO] [Helpers]: Saved DataFrame (200 rows) to /home/user/us-flights-analytics-platform/data/processed/flights_features.parquet
+[2026-07-16 13:20:12] [INFO] [FeatureEngineering]: Feature engineering complete. Saved ML feature matrix.
+[2026-07-16 13:20:12] [INFO] [MasterPipeline]: Dry-run verification complete. Exiting before heavy ML training.
+[2026-07-16 13:20:12] [INFO] [Preprocessing]: Cleaning raw flights records...
+[2026-07-16 13:20:12] [INFO] [Preprocessing]: Cleaned flights records: 2 rows retained.
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Validation Check Passed: Distance Non-Negative
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Validation Check Passed: Month Bounds (1-12)
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Validation Check Passed: Day of Week Bounds (0-6)
+[2026-07-16 13:20:12] [INFO] [DataValidation]: Validation Check Passed: Scheduled Hour Bounds (0-23)

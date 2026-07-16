@@ -1,0 +1,3 @@
+# Microsoft Power BI Desktop Model Placeholder (`US_Flights_Analytics.pbix`)
+# Connects to `exec_summary_kpi.csv`, `airline_scorecard.csv`, `airport_metrics.csv`, and `route_popularity.csv`
+# See `US_Flights_Analytics.pbix.README.md` for refresh instructions.

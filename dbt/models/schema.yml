@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: raw_aviation
+    schema: main
+    tables:
+      - name: flights_raw
+      - name: weather_hourly
+      - name: airports
+      - name: airlines
+
+models:
+  - name: stg_flights
+    description: "Cleaned and standardized flight schedule transactions"
+    columns:
+      - name: flight_id
+        tests:
+          - unique
+          - not_null
+      - name: is_cancelled
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+  - name: fact_flights
+    description: "Enterprise analytics mart joining schedules, weather, and delay KPIs"
+    columns:
+      - name: flight_id
+        tests:
+          - unique
+          - not_null
